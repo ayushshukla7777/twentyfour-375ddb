@@ -47,7 +47,11 @@
   const mimeFor = (key) => (key.endsWith(".mp4") ? "video/mp4" : "image/webp");
 
   async function loadMeta() {
-    const res = await fetch("assets/crypto.json", { cache: "no-cache" });
+    // Always fetch the key material fresh. The host's edge cache holds every file
+    // for minutes, and a crypto.json from before a re-key cannot open blobs from
+    // after it — so the key must never be the stale half. A few KB on load is a
+    // fair price for that.
+    const res = await fetch("assets/crypto.json?t=" + Date.now(), { cache: "no-store" });
     if (!res.ok) throw new Error("cannot load assets/crypto.json");
     return (META = await res.json());
   }
@@ -86,12 +90,27 @@
     const job = (async () => {
       const name = META && META.files[key];
       if (!name) throw new Error("unknown asset: " + key);
-      const res = await fetch("assets/enc/" + name);
-      if (!res.ok) throw new Error("fetch failed: " + name);
-      const buf = new Uint8Array(await res.arrayBuffer());
-      const plain = await subtle.decrypt(
-        { name: "AES-GCM", iv: buf.subarray(0, 12) }, MASTER, buf.subarray(12));
-      return URL.createObjectURL(new Blob([plain], { type: mimeFor(key) }));
+
+      const grab = async (fresh) => {
+        const url = "assets/enc/" + name +
+          (fresh ? "?r=" + Math.random().toString(36).slice(2) : "");
+        const res = await fetch(url, fresh ? { cache: "no-store" } : undefined);
+        if (!res.ok) throw new Error("fetch failed: " + name);
+        return new Uint8Array(await res.arrayBuffer());
+      };
+      const open = async (buf) => URL.createObjectURL(new Blob(
+        [await subtle.decrypt({ name: "AES-GCM", iv: buf.subarray(0, 12) },
+          MASTER, buf.subarray(12))],
+        { type: mimeFor(key) }));
+
+      try {
+        return await open(await grab(false));
+      } catch (e) {
+        // The edge cache can still be serving the previous version of this blob
+        // for a few minutes after a deploy. One forced refetch settles that; if
+        // it fails a second time the key really is wrong, and the caller reports it.
+        return await open(await grab(true));
+      }
     })();
     ASSET_CACHE.set(key, job);
     job.catch(() => ASSET_CACHE.delete(key));
