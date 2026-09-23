@@ -9,10 +9,10 @@
 const CONFIG = {
   her: "Anjali",
   him: "Ayush",
-  // The day you two got together. Ayush said "Dec 2022" and "3 years 9 months"
-  // — 23 Dec 2022 is what fits that exactly. Change the day if it's wrong:
-  // the live counter reads straight from this.
-  TOGETHER_SINCE: "2022-12-23T00:00:00+05:30",
+  // The day you two met: 12 December 2022 — Ayush's own date, so treat it as
+  // exact. The live counter and every "how long have we been" line read from
+  // this one value, so fix the date here and the whole page follows.
+  TOGETHER_SINCE: "2022-12-12T00:00:00+05:30",
   // Her birthday. Used for the countdown / celebration switch. IST.
   BIRTHDAY: "2026-09-24T00:00:00+05:30",
   // What she can type to get in. Any of these, any capitalisation.
@@ -29,6 +29,26 @@ const CONFIG = {
     tag: "A little bit of Kolkata, because it made you.",
   },
 };
+
+/* How long we've been "us" — computed from CONFIG.TOGETHER_SINCE rather than
+   typed by hand, so no sentence on the page can drift out of date or end up
+   disagreeing with the live counter. */
+const US = (() => {
+  const since = new Date(CONFIG.TOGETHER_SINCE);
+  const now = new Date();
+  let y = now.getFullYear() - since.getFullYear();
+  let m = now.getMonth() - since.getMonth();
+  if (now.getDate() < since.getDate()) m -= 1;
+  if (m < 0) { y -= 1; m += 12; }
+  const word = (n) => ["zero", "one", "two", "three", "four", "five", "six",
+    "seven", "eight", "nine", "ten", "eleven", "twelve"][n] || String(n);
+  return {
+    short: `${y} years, ${m} months`,                 // "3 years, 9 months"
+    words: `${word(y)} years and ${word(m)} months`,  // "three years and nine months"
+    days: Math.floor((now - since) / 86400000),
+    met: "12 December 2022",
+  };
+})();
 
 /* ============================================================================
    EVERY PHOTO, WITH A CAPTION
@@ -91,8 +111,8 @@ const VIDEO_POSTERS = { v1: "p19", v2: "p30", v3: "p43", v4: "p07" };
 const STORY = [
   {
     chapter: "Where it started",
-    when: "December 2022",
-    text: "However it happened, it happened in December 2022 — and then everything after this page's photos had a reason to exist. And then Indore: paper glasses on both of us, pretending to be serious people, the first photo of us in the same room instead of on the same call. You said we needed new meetup pics. We still do.",
+    when: "12 December 2022",
+    text: "12 December 2022 — that's the day it started, and now it's written down, so neither of us can get it wrong again. And then Indore: paper glasses on both of us, pretending to be serious people, the first photo of us in the same room instead of on the same call. You said we needed new meetup pics. We still do.",
     photos: ["p05", "p11"],
   },
   {
@@ -121,8 +141,8 @@ const STORY = [
   },
   {
     chapter: "And us, now",
-    when: "3 years, 9 months",
-    text: "Three years and nine months. A lot of photographs, a lot of late nights, a lot of “na gussa, no baby.” Different cities on the map and never really apart. Here's to the next year of it.",
+    when: US.short,
+    text: `A lot of photographs, a lot of late nights, a lot of “na gussa, no baby” — ${US.words} of it, all counted from 12 December 2022. Different cities on the map and never really apart. Here's to the next year of it.`,
     photos: ["p09", "p17", "p33"],
   },
 ];
@@ -196,11 +216,11 @@ const ENVELOPES = [
    ============================================================================ */
 const QUIZ = [
   {
-    q: "When did our story start? 😁",
-    options: ["December 2022", "March 2023", "August 2021", "December 2020"],
+    q: "When did our story start? (exact date, no cheating 😁)",
+    options: ["12 December 2022", "24 December 2022", "12 November 2022", "23 December 2022"],
     correct: 0,
-    right: "December 2022 ❤️ Aur aaj tak aapne exact date sahi se batayi hi nahi 😤😁",
-    wrong: "No no, December 2022 😤 Woh mahina jiska exact date mujhe aapse aaj tak nahi mila 😁❤️",
+    right: "12 December 2022 ❤️ Aur ab woh date site pe likhi hai, toh bhoolne ka koi bahana nahi 😁🤍",
+    wrong: "12 December 2022 😤 Ab woh date site pe likhi hai — bhoolne ka bahana khatam 😁❤️",
   },
   {
     q: "What does Ayush call you? 🥹",
@@ -266,7 +286,7 @@ const LETTER = [
    TINY THINGS — the small marquee lines under the hero.
    ============================================================================ */
 const TICKER = [
-  "3 years, 9 months",
+  US.short,
   "hundreds of video calls",
   "2:49am",
   "double thumbs up",

@@ -380,7 +380,7 @@
     const sub = $("#heroSub");
     if (isBirthday()) {
       $("#heroEyebrow").textContent = "24th September";
-      sub.textContent = `${CONFIG.her}, it's your day. I built you a whole corner of the internet and filled it with three years and nine months of you.`;
+      sub.textContent = `${CONFIG.her}, it's your day. I built you a whole corner of the internet and filled it with ${US.words} of you.`;
     } else {
       $("#heroEyebrow").textContent = "Almost there…";
       sub.textContent = `Something is waiting for you here, ${CONFIG.her}. Come back at midnight.`;
@@ -424,7 +424,7 @@
   function initCounter() {
     const lead = $("#counterLead");
     lead.textContent =
-      `We got together in December ${SINCE.getFullYear()}. Everything below has been ticking since — ` +
+      `We got together on ${US.met}. Everything below has been ticking since — ` +
       `it updates while you're reading it.`;
 
     const grid = $("#yrs");
@@ -950,7 +950,7 @@
     $("#finaleMsg").innerHTML = `
       <p class="big">${CONFIG.her} — 24th September. Aapka din ❤️</p>
       <p>Mai aapke paas nahi hoon cake dene ke liye 🥹 so I made you this instead — forty-two photographs of you,
-      four little films, three years and nine months of us, aur ek letter jo mai sach me keh raha hoon 😁❤️</p>
+      four little films, ${US.words} of us, aur ek letter jo mai sach me keh raha hoon 😁❤️</p>
       <p>Is saal sab kuch click ho jaaye — CA, kaam, woh sab jo aap chup chaap kar rahi ho jab koi dekh nahi raha 🤞🥰
       Aur mai jaldi aapse milne aaun, because missing you is genuinely exhausting 😭🤧</p>
       <p>Khush raho aaj 🥹 Kuch meetha khao 🍰 Aur jab sab padh lo — call me 😁❤️</p>
