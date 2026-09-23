@@ -334,7 +334,7 @@
       try { got = await unlockWith(typed); } catch (e2) { got = null; }
       if (btn) { btn.disabled = false; btn.textContent = "Unlock"; }
 
-      if (!got) { fail("Not quite — that's not one of the names he calls you."); return; }
+      if (!got) { fail("Not quite — that's not one of the names Ayush calls you."); return; }
 
       MASTER = got.key;
       try {

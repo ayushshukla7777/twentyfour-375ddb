@@ -25,7 +25,7 @@ const CONFIG = {
     // The transliteration is shown too, so the wish still lands even on a
     // device with no Bengali font installed.
     bengaliRoman: "Shubho jonmodin, sona",
-    bengaliMeaning: "Happy birthday, Sona — “sona” means gold in Bengali. Which is what he calls you, and what you are.",
+    bengaliMeaning: "Happy birthday, Sona — “sona” means gold in Bengali. It is what Ayush calls you, and what you are.",
     tag: "A little bit of Kolkata, because it made you.",
   },
 };
@@ -92,8 +92,8 @@ const STORY = [
   {
     chapter: "Where it started",
     when: "December 2022",
-    text: "However it happened, it happened in December 2022 — and then everything after this page's photos had a reason to exist.",
-    photos: ["p26", "p11"],
+    text: "However it happened, it happened in December 2022 — and then everything after this page's photos had a reason to exist. And then Indore: paper glasses on both of us, pretending to be serious people, the first photo of us in the same room instead of on the same call. You said we needed new meetup pics. We still do.",
+    photos: ["p05", "p11"],
   },
   {
     chapter: "Then it became phone screens",
@@ -117,13 +117,13 @@ const STORY = [
     chapter: "And you, building your life",
     when: "every single day",
     text: "Navy blazer. Teal shirt. Coral kurta with the ID card on. The lift-lobby mirror selfies on your way in, the office corridor ones on your way out. You're out there doing it — the CA papers, the articleship, the long days — and you still make time to call me at 2 in the morning. When that CA goes up on the wall, I want to be in the room. And then you're giving me a party, apparently. I'm holding you to it.",
-    photos: ["p18", "p14", "p36", "p41", "p02", "p34"],
+    photos: ["p18", "p14", "p36", "p41", "p26"],
   },
   {
     chapter: "And us, now",
     when: "3 years, 9 months",
     text: "Three years and nine months. A lot of photographs, a lot of late nights, a lot of “na gussa, no baby.” Different cities on the map and never really apart. Here's to the next year of it.",
-    photos: ["p12", "p05", "p09", "p17"],
+    photos: ["p09", "p17", "p33"],
   },
 ];
 
