@@ -98,7 +98,7 @@ const STORY = [
   {
     chapter: "Then it became phone screens",
     when: "2023 onwards",
-    text: "Somewhere in there our relationship moved onto a 6-inch screen. Your face, filling my phone, at every hour of the night. 2:49am, 1:47am, 11:53pm. Me in the corner, small, watching you talk. There are forty pictures on this page and about half of them are exactly that. I wouldn't trade a single one.",
+    text: "Somewhere in there, we turned into hundreds of video calls 😁📱 Your face filling my phone at every hour of the night — 2:49am, 1:47am, 11:53pm 🥹❤️ Log kehte hai long distance mushkil hota hai — par mere liye woh calls hi sab kuch thi 🫶 They were never a smaller version of us. They were us ❤️ Half the photos on this page are exactly that, and I wouldn't trade a single one 😁💋",
     photos: ["p20", "p42", "p22", "p23"],
   },
   {
@@ -163,31 +163,31 @@ const REASONS = [
 const ENVELOPES = [
   {
     label: "Open when you miss me",
-    body: "Then read the next line slowly: I'm missing you at exactly the same moment, probably about the same amount, and definitely more than I'd admit to. Put your hand on your chest. That's not just you. Call me — I'll pick up.",
+    body: "Then just know I'm missing you at the same time, same amount, probably more 😭❤️ Meri sonna ji, put your hand on your chest — that feeling is not only yours, it's mine too 🥹💋 Call me, I'll pick up on the first ring 😁🤧",
   },
   {
     label: "Open when you're angry with me",
-    body: "You're allowed. It's probably fair, and I probably deserved it. But remember the notebook: “Na Gussa. No Baby!! Apne Golu ko maaf kardo.” That was true then and it's true now. When you're ready — not before — I'm here.",
+    body: "You are allowed, and I probably deserve it 😅🙏 Par yaad rakho — “Na Gussa. No Baby!! Apne Golu ko maaf kardo” 😁❤️ Woh likha tha tab bhi, aur sach hai ab bhi 🥹🤍 Jab ready ho — pehle nahi — mai yahin hoon 💋",
   },
   {
     label: "Open when you can't sleep",
-    body: "It's late. It's the same hour we've spent hundreds of nights in. You don't have to be asleep to rest — put the phone down, lie on your side the way you do, eyes half shut, and imagine me on the other end saying nothing at all. That's a real thing we do. It'll work.",
+    body: "It's late, and it's our hour anyway 😴🌙 You don't have to sleep to rest — phone side pe rakho, lie on your side the way you do, eyes half shut, and imagine me on the other end saying nothing at all 🥹❤️ That's a real thing we do, it will work 💋🤍",
   },
   {
     label: "Open when you feel like you're not doing enough",
-    body: "You are. Look at the photos on this page — the lanyard, the office corridor, the lift lobby, the blazer. That's you, out in the world, building something. Nobody is keeping up with you. I'm proud of you and I don't say it enough.",
+    body: "You are doing enough, meri golu 😤❤️ Look at the photos — the lanyard, the office corridor, the lift lobby, the blazer. That's you out there building your life 🥰✨ Nobody is keeping up with you 💪 And when that CA goes up on the wall, I want to be in the room 🤞😁 I'm proud of you and I don't say it enough 🥹❤️",
   },
   {
     label: "Open when you need to smile",
-    body: "Double thumbs up. Paper glasses. A blurry photo of you laughing at your own joke. ICON t-shirt, standing in your room explaining your entire day to me. Go on. There it is.",
+    body: "Double thumbs up 👍👍 Paper glasses 🤓 A blurry photo of you laughing at your own joke 😂❤️ ICON t-shirt, standing in your room explaining your whole day to me 😁👕 Hayeee my cutiee, there it is 🥹❤️",
   },
   {
     label: "Open when you're sad and don't want to explain why",
-    body: "You don't have to explain. You never do. Sit with it and let it pass, and if it doesn't pass, call me and we won't talk about it. I'll just be there, in the corner of the screen, saying nothing. That's allowed too.",
+    body: "You don't have to explain, meri baby jaan 🥹❤️ You never have to 🫶 Sit with it and let it pass, and if it doesn't pass, call me and we won't talk about it at all 😶‍🌫️🌙 I'll just be there, in the corner of the screen, saying nothing 🥹🤍 That's allowed too 💋",
   },
   {
     label: "Open on a random ordinary day, for no reason",
-    body: "Hello. I just wanted you to have opened one. Nothing's wrong, nothing's happening, it's Tuesday. I love you. That's the entire message.",
+    body: "Hello meri sonna ji 😁❤️ Nothing is wrong, nothing is happening, it's just a Tuesday 😌 I love you. That's the entire message 💋🤍",
   },
 ];
 
@@ -196,21 +196,21 @@ const ENVELOPES = [
    ============================================================================ */
 const QUIZ = [
   {
-    q: "When did our story start?",
+    q: "When did our story start? 😁",
     options: ["December 2022", "March 2023", "August 2021", "December 2020"],
     correct: 0,
-    right: "December 2022. And you still haven't told me the exact date properly.",
-    wrong: "No no. December 2022. The one month I'll never get the day of out of you.",
+    right: "December 2022 ❤️ Aur aaj tak aapne exact date sahi se batayi hi nahi 😤😁",
+    wrong: "No no, December 2022 😤 Woh mahina jiska exact date mujhe aapse aaj tak nahi mila 😁❤️",
   },
   {
-    q: "What does Ayush call you?",
-    options: ["Golu", "Sonna", "Baby", "All of the above"],
+    q: "What does Ayush call you? 🥹",
+    options: ["Golu", "Sonna", "Baby", "All of the above 😁"],
     correct: 3,
-    right: "Correct. All of them. He has no consistency and no shame.",
-    wrong: "It's all of them. Golu, sonna, baby, darlo — he cycles through them like a man choosing a shirt.",
+    right: "Correct — all of them ❤️ He has no consistency and no shame 😁🤍",
+    wrong: "It's all of them 😁 Golu, sonna, baby, darlo — he cycles through them like a man choosing a shirt 👕❤️",
   },
   {
-    q: "What was written on the notebook when he was in trouble?",
+    q: "What did I write on the notebook when I was in trouble? 😅",
     options: [
       "I'm sorry, please talk to me",
       "Na Gussa. No Baby!! Apne Golu ko maaf kardo",
@@ -218,34 +218,34 @@ const QUIZ = [
       "I'll do the dishes",
     ],
     correct: 1,
-    right: "Yes. “Na Gussa. No Baby!! Apne Golu ko maaf kardo.” He keeps the receipt.",
-    wrong: "“Na Gussa. No Baby!! Apne Golu ko maaf kardo.” Framed forever, basically.",
+    right: "Yes!! “Na Gussa. No Baby!! Apne Golu ko maaf kardo” 🙏😁 Mai aise sau aur likh dunga ❤️",
+    wrong: "“Na Gussa. No Baby!! Apne Golu ko maaf kardo” 😁❤️ Framed forever, basically 🖼️🙏",
   },
   {
-    q: "Where is she standing in the picture with the light blue shirt?",
+    q: "Where are you standing in the picture with the light blue shirt? 💙",
     options: ["India Gate", "The Taj Mahal", "Howrah Bridge", "Gateway of India"],
     correct: 1,
-    right: "The Taj Mahal. And the monument was not the best-looking thing in that photo.",
-    wrong: "The Taj Mahal. Honestly, have another look at the photo — you were the attraction.",
+    right: "The Taj Mahal 🕌 And the monument was not the best-looking thing in that photo 😌❤️",
+    wrong: "The Taj Mahal 😁 Honestly, look at the photo again — aap hi attraction thi 🤍",
   },
   {
-    q: "Roughly how many of these photos are just her face on a phone screen?",
+    q: "Roughly how many of these photos are just your face on a phone screen? 📱",
     options: ["About 5", "About 10", "About 20", "None, we're not like that"],
     correct: 2,
-    right: "About twenty. It is officially the theme of this relationship. Long distance, many calls.",
-    wrong: "It's about twenty. This whole website is basically an archive of you on a phone screen.",
+    right: "About twenty 😁 Officially the theme of this relationship. Long distance, many calls 📱❤️",
+    wrong: "It's about twenty 😁 This whole website is basically an archive of you on a phone screen 🥹❤️",
   },
   {
-    q: "What's the best thing about Anjali?",
+    q: "What's the best thing about you? 😌 (no wrong answer here)",
     options: [
-      "Her laugh",
-      "Her patience with him",
-      "That she's the prettiest person in every photo",
-      "She works hard",
+      "Your laugh 😂",
+      "Your patience with me 🙏",
+      "That you're the prettiest in every photo 😻",
+      "You work so hard 💼",
     ],
     correct: -1,   // -1 means every answer is correct
-    right: "Correct, obviously. There are no wrong answers to this one.",
-    wrong: "There are no wrong answers to this one.",
+    right: "Correct, obviously ❤️ There are no wrong answers to this one 🥰",
+    wrong: "There are no wrong answers to this one 🥰",
   },
 ];
 

@@ -906,7 +906,7 @@
       $("#wish").hidden = false;
       if (!reduced) siteFX.burst(190);
       $("#wishSub").textContent =
-        `Whatever you just wished for — I want it too. Specially the CA thing. And the party.`;
+        `Whatever you just wished for — mai bhi wahi chahta hoon 🥹❤️ Specially the CA thing 🤞 And the party 😁🎉`;
     }
 
     cake.addEventListener("click", (e) => {
@@ -929,14 +929,13 @@
   function initFinale() {
     $("#finaleTitle").textContent = `Happy birthday, ${CONFIG.her}`;
     $("#finaleMsg").innerHTML = `
-      <p class="big">${CONFIG.her} — 24th September. Yours.</p>
-      <p>I'm not there to hand you a cake, so this is what I had instead: forty-two photographs of you,
-      four little films, three years and nine months of us, and a letter I actually meant.</p>
-      <p>I hope this year is the year it all clicks into place — the CA, the work, everything you've been
-      quietly working for while nobody was watching. And I hope I get to come and see you soon, because
-      missing you is genuinely exhausting.</p>
-      <p>Be happy today. Eat something sweet. Call me when you've read all of it.</p>
-      <p class="big script" style="font-size:1.9rem;color:var(--gold-2)">Happy birthday, sonna. 🤍</p>`;
+      <p class="big">${CONFIG.her} — 24th September. Aapka din ❤️</p>
+      <p>Mai aapke paas nahi hoon cake dene ke liye 🥹 so I made you this instead — forty-two photographs of you,
+      four little films, three years and nine months of us, aur ek letter jo mai sach me keh raha hoon 😁❤️</p>
+      <p>Is saal sab kuch click ho jaaye — CA, kaam, woh sab jo aap chup chaap kar rahi ho jab koi dekh nahi raha 🤞🥰
+      Aur mai jaldi aapse milne aaun, because missing you is genuinely exhausting 😭🤧</p>
+      <p>Khush raho aaj 🥹 Kuch meetha khao 🍰 Aur jab sab padh lo — call me 😁❤️</p>
+      <p class="big script" style="font-size:1.9rem;color:var(--gold-2)">Happy birthday, meri sonna ji 🥰❤️💋👑</p>`;
   }
 
   /* ==========================================================================
