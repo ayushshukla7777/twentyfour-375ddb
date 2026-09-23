@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday, Anjali 🎂</title>
+<meta name="description" content="A little corner of the internet built for one person.">
+<!-- Keep this out of search engines. It's private. -->
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#180d1c">
+<meta property="og:title" content="Happy Birthday, Anjali 🎂">
+<meta property="og:description" content="A little corner of the internet built for one person.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='88'>🎂</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Great+Vibes&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============================ THE LOCK ============================ -->
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
+  <canvas class="gate__petals" id="gatePetals" aria-hidden="true"></canvas>
+  <div class="gate__card">
+    <div class="gate__heart" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="44" height="44"><path fill="currentColor" d="M12 21s-6.7-4.35-9.33-8.02C.9 10.3 2.07 6.3 5.6 5.4c2.1-.54 4.03.4 5.4 2.03C12.37 5.8 14.3 4.86 16.4 5.4c3.53.9 4.7 4.9 2.93 7.58C18.7 16.65 12 21 12 21z"/></svg>
+    </div>
+    <p class="gate__kicker">This page is locked</p>
+    <h1 class="gate__title" id="gateTitle">Only for <span class="script" id="gateName">Anjali</span></h1>
+    <p class="gate__hint" id="gateHint">What does Ayush call you?</p>
+    <form class="gate__form" id="gateForm" autocomplete="off">
+      <input class="gate__input" id="gateInput" type="text" placeholder="type it here…"
+             aria-label="Password" autocapitalize="off" autocorrect="off" spellcheck="false">
+      <button class="btn btn--primary" type="submit">Unlock</button>
+    </form>
+    <p class="gate__error" id="gateError" role="alert" aria-live="polite"></p>
+    <p class="gate__note">Nobody else will ever see this page.</p>
+  </div>
+</div>
+
+<!-- ============================ SITE ============================ -->
+<div class="site" id="site" hidden>
+
+  <canvas class="fx" id="fx" aria-hidden="true"></canvas>
+
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <!-- ---------- HERO ---------- -->
+  <header class="hero" id="hero">
+    <div class="hero__bg" id="heroBg" aria-hidden="true"></div>
+    <div class="garland" aria-hidden="true" id="garland"></div>
+
+    <div class="hero__inner">
+      <p class="hero__eyebrow" id="heroEyebrow">24th September</p>
+      <h1 class="hero__title">
+        <span class="hero__happy" id="heroHappy">Happy Birthday</span>
+        <span class="hero__name script" id="heroName">Anjali</span>
+      </h1>
+
+      <p class="hero__sub" id="heroSub"></p>
+
+      <!-- countdown before the day, counter after -->
+      <div class="countdown" id="countdown" hidden>
+        <p class="countdown__label">It's almost your day, <span id="cdName">Anjali</span> —</p>
+        <div class="countdown__grid" id="cdGrid"></div>
+      </div>
+
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker__track" id="tickerTrack"></div>
+      </div>
+
+      <div class="hero__scroll">
+        <span>scroll</span>
+        <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 16.5 5.5 10l1.4-1.4 5.1 5.1 5.1-5.1L18.5 10z"/></svg>
+      </div>
+    </div>
+  </header>
+
+  <!-- ---------- THE COUNTER ---------- -->
+  <section class="section section--counter" id="counter">
+    <div class="wrap">
+      <h2 class="section__title reveal">Us, by the numbers</h2>
+      <p class="section__lead reveal" id="counterLead"></p>
+      <div class="yrs" id="yrs"></div>
+      <p class="yrs__fine" id="yrsFine"></p>
+    </div>
+  </section>
+
+  <!-- ---------- GALLERY ---------- -->
+  <section class="section" id="gallery">
+    <div class="wrap">
+      <h2 class="section__title reveal">Forty-four photographs and four little films</h2>
+      <p class="section__lead reveal">
+        Tap any of them to make it big. Every caption was written while looking at that exact photo.
+      </p>
+
+      <div class="filters reveal" id="filters" role="group" aria-label="Filter photos"></div>
+      <div class="masonry" id="masonry"></div>
+
+      <h3 class="sub-title reveal">The moving ones</h3>
+      <p class="section__lead reveal">Four short clips, looping quietly.</p>
+      <div class="clips" id="clips"></div>
+    </div>
+  </section>
+
+  <!-- ---------- KOLKATA DIVIDER ---------- -->
+  <section class="kolkata" id="kolkata">
+      <div class="kolkata__sky" aria-hidden="true">
+        <div class="kolkata__bridge" id="kolkataBridge"></div>
+        <div class="kolkata__lights" id="kolkataLights"></div>
+      </div>
+      <div class="wrap kolkata__inner">
+        <p class="kolkata__tag" id="kolTag"></p>
+        <p class="kolkata__wish" id="kolWish"></p>
+        <p class="kolkata__roman" id="kolRoman"></p>
+        <p class="kolkata__meaning" id="kolMeaning"></p>
+        <p class="kolkata__marigold" id="kolMarigold" aria-hidden="true"></p>
+      </div>
+  </section>
+
+  <!-- ---------- STORY ---------- -->
+  <section class="section" id="story">
+    <div class="wrap">
+      <h2 class="section__title reveal">Our story, in chapters</h2>
+      <p class="section__lead reveal">Not a timeline of dates. A timeline of things that are actually in these photographs.</p>
+      <div class="chapters" id="chapters"></div>
+    </div>
+  </section>
+
+  <!-- ---------- 24 REASONS ---------- -->
+  <section class="section section--alt" id="reasons">
+    <div class="wrap">
+      <h2 class="section__title reveal">Twenty-four reasons</h2>
+      <p class="section__lead reveal">
+        One for every year, because you turn twenty-four on the twenty-fourth. Tap each card to turn it over.
+      </p>
+      <div class="reasons" id="reasonsGrid"></div>
+      <p class="reasons__foot reveal" id="reasonsFoot"></p>
+    </div>
+  </section>
+
+  <!-- ---------- LETTER ---------- -->
+  <section class="section" id="letter">
+    <div class="wrap wrap--narrow">
+      <h2 class="section__title reveal">A note from Ayush</h2>
+      <p class="section__lead reveal">In his own words. Nobody edited this.</p>
+      <div class="letter reveal">
+        <div class="letter__paper">
+          <div class="letter__body" id="letterBody"></div>
+          <p class="letter__sign script">— Ayush</p>
+        </div>
+        <button class="btn btn--ghost letter__replay" id="letterReplay" type="button">Read it again</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- ENVELOPES ---------- -->
+  <section class="section section--alt" id="envelopes">
+    <div class="wrap">
+      <h2 class="section__title reveal">Open when…</h2>
+      <p class="section__lead reveal">
+        Seven of these. For the days that aren't your birthday too. Tap to open — and only open the one you need.
+      </p>
+      <div class="envelopes" id="envelopesGrid"></div>
+    </div>
+  </section>
+
+  <!-- ---------- QUIZ ---------- -->
+  <section class="section" id="quiz">
+    <div class="wrap wrap--narrow">
+      <h2 class="section__title reveal">How well do you know us?</h2>
+      <p class="section__lead reveal">Six questions. No pressure. He'd fail most of them.</p>
+      <div class="quiz" id="quizBox"></div>
+    </div>
+  </section>
+
+  <!-- ---------- FINALE ---------- -->
+  <section class="section section--finale" id="finale">
+    <div class="wrap wrap--narrow">
+      <h2 class="section__title reveal" id="finaleTitle">Make a wish</h2>
+      <p class="section__lead reveal">Blow out the candles. Go on — tap them.</p>
+      <div class="cake" id="cake" aria-label="Birthday cake with candles"></div>
+      <p class="cake__hint" id="cakeHint">tap the flames</p>
+      <div class="wish" id="wish" hidden>
+        <p class="wish__line script" id="wishLine">Wish made. 🤍</p>
+        <p class="wish__sub" id="wishSub"></p>
+      </div>
+      <div class="finale__msg" id="finaleMsg"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <p class="footer__line">Made by <strong>Ayush</strong>, for <strong class="script">Anjali</strong>.</p>
+      <p class="footer__sub">24th September · no search engine knows this page exists · nobody else has the link</p>
+      <p class="footer__hearts" aria-hidden="true">🤍 🌼 🤍</p>
+    </div>
+  </footer>
+
+</div>
+
+<!-- ============================ LIGHTBOX ============================ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+  <button class="lightbox__close" id="lbClose" type="button" aria-label="Close">×</button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" type="button" aria-label="Previous photo">‹</button>
+  <figure class="lightbox__figure">
+    <img id="lbImg" alt="">
+    <figcaption id="lbCap"></figcaption>
+  </figure>
+  <button class="lightbox__nav lightbox__nav--next" id="lbNext" type="button" aria-label="Next photo">›</button>
+  <p class="lightbox__count" id="lbCount"></p>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

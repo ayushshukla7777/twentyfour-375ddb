@@ -1,0 +1,20 @@
+# NEVER commit any of this.
+
+# The plaintext media — only the encrypted copies under assets/enc are published.
+assets/photo/
+assets/video/
+
+# The password list used by tools/encrypt_assets.py
+tools/.passwords
+
+# Scratch files from testing
+_test.html
+_t*.html
+_dbg*.html
+_ping.txt
+review/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
