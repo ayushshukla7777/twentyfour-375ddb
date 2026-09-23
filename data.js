@@ -30,6 +30,17 @@ const CONFIG = {
   },
 };
 
+/* Number to words, 0-99 — used for the durations and the media counts below. */
+const numWord = (n) => {
+  const ones = ["zero", "one", "two", "three", "four", "five", "six", "seven",
+    "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen",
+    "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
+  const tens = ["", "", "twenty", "thirty", "forty", "fifty", "sixty",
+    "seventy", "eighty", "ninety"];
+  if (n < 20) return ones[n];
+  return tens[Math.floor(n / 10)] + (n % 10 ? "-" + ones[n % 10] : "");
+};
+
 /* How long we've been "us" — computed from CONFIG.TOGETHER_SINCE rather than
    typed by hand, so no sentence on the page can drift out of date or end up
    disagreeing with the live counter. */
@@ -40,11 +51,9 @@ const US = (() => {
   let m = now.getMonth() - since.getMonth();
   if (now.getDate() < since.getDate()) m -= 1;
   if (m < 0) { y -= 1; m += 12; }
-  const word = (n) => ["zero", "one", "two", "three", "four", "five", "six",
-    "seven", "eight", "nine", "ten", "eleven", "twelve"][n] || String(n);
   return {
-    short: `${y} years, ${m} months`,                 // "3 years, 9 months"
-    words: `${word(y)} years and ${word(m)} months`,  // "three years and nine months"
+    short: `${y} years, ${m} months`,                        // "3 years, 9 months"
+    words: `${numWord(y)} years and ${numWord(m)} months`,   // "three years and nine months"
     days: Math.floor((now - since) / 86400000),
     met: "12 December 2022",
   };
@@ -55,7 +64,6 @@ const US = (() => {
    Written by looking at each one. These are the labels on the gallery.
    ============================================================================ */
 const PHOTOS = {
-  p01: "You, tiny in the corner of my screen — and me grinning at nothing.",
   p02: "When madam ji wants 2nd opinion on the new dress 😁👗❤️",
   p03: "My cutiee with her smile, looking like a woww!!! 😍🥰❤️",
   p04: "Hai my darlo in full corporate look!! 😻💼❤️",
@@ -103,6 +111,21 @@ const PHOTOS = {
 const HERO_PHOTO = "p04";        // the formal portrait — clean, striking
 const HERO_PHOTO_ALT = "p15";    // the big smile, for the phone frame
 const VIDEO_POSTERS = { v1: "p19", v2: "p30", v3: "p43", v4: "p07" };
+
+/* How many photographs and films the page actually shows — counted from the
+   media itself, never typed, so no heading can advertise a number that isn't
+   there. Removing a photo updates every mention of the total at once. */
+const COUNTS = (() => {
+  const photos = Object.keys(PHOTOS).length;
+  const videos = Object.keys(VIDEO_POSTERS).length;
+  const cap = (s) => s[0].toUpperCase() + s.slice(1);
+  return {
+    photos, videos,
+    photosWord: numWord(photos),
+    videosWord: numWord(videos),
+    title: `${cap(numWord(photos))} photographs and ${numWord(videos)} little films`,
+  };
+})();
 
 /* ============================================================================
    OUR STORY — chapters, each anchored to real photos.

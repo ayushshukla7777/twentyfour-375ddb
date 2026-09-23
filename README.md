@@ -32,9 +32,9 @@ A password gate, then, in order:
 | `styles.css` | All styling — Kolkata-at-night palette, responsive, no framework |
 | `data.js` | **All content**: config, captions, story, reasons, envelopes, quiz, the letter |
 | `app.js` | Behaviour: gate, counters, gallery, lightbox, cake, quiz, animations |
-| `assets/photo/` | 42 photos, WebP in `full/` (1100px) and `thumb/` (520px) |
+| `assets/photo/` | 41 photos, WebP in `full/` (1100px) and `thumb/` (520px) |
 | `assets/video/` | 4 clips, remuxed H.264 with `+faststart` |
-| `assets/manifest.json` | Machine-readable inventory of every asset |
+| `assets/manifest.json` | Inventory of the media as first built (snapshot — the live site doesn't read it) |
 | `tools/` | The scripts used to prepare the media (kept for reproducibility) |
 
 ## Changing anything
@@ -73,7 +73,7 @@ without publishing anything personal:
 - The master key is not stored anywhere. It is wrapped once per accepted
   password using PBKDF2-SHA256 (250,000 iterations), so unlocking the page in
   the browser *is* the decryption.
-- Fetching `assets/enc/p01_thumb.bin` directly gets you ciphertext, not a photo.
+- Fetching `assets/enc/p02_thumb.bin` directly gets you ciphertext, not a photo.
 - The password list is deliberately **not** in this repo — `tools/encrypt_assets.py`
   reads it from `ANJALI_PASSWORDS` or a git-ignored `tools/.passwords`, because a
   published list of candidates would make the wrapped key trivial to crack.

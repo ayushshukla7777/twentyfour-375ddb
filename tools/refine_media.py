@@ -20,7 +20,7 @@ ROTATE = {                      # rotate 180: the photo was saved upside-down
 }
 # video-call screenshots: strip status bar (top) and call-button row (bottom)
 VCALL = {
-    "p01", "p06", "p08", "p09", "p11", "p12", "p13", "p15", "p17",
+    "p06", "p08", "p09", "p11", "p12", "p13", "p15", "p17",
     "p20", "p22", "p23", "p24", "p27", "p28", "p29", "p31", "p32",
     "p33", "p40", "p42",
 }

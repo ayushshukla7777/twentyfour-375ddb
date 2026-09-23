@@ -8,7 +8,7 @@ PROJ = "/home/ayush/anjali-birthday"
 SRC = os.path.expanduser("~/.hermes/cache/images")
 FULL, THUMB = f"{PROJ}/assets/photo/full", f"{PROJ}/assets/photo/thumb"
 
-VCALL = ["p01","p06","p08","p09","p11","p12","p13","p15","p17","p20","p22",
+VCALL = ["p06","p08","p09","p11","p12","p13","p15","p17","p20","p22",
          "p23","p24","p27","p28","p29","p31","p32","p33","p40","p42"]
 TOP_F, BOT_F = 0.085, 0.125
 

@@ -27,9 +27,11 @@
   let META = null, MASTER = null;
 
   /* A remembered key is proven by decrypting one real asset (see initGate).
-     Chosen from the manifest at runtime so it can never name a deleted file. */
+     Picked from the manifest at runtime, so it can never name a file that has
+     since been deleted from the set. */
   const verifyKey = () =>
-    META.files["p01.thumb"] ? "p01.thumb" : Object.keys(META.files)[0];
+    Object.keys(META.files).find((k) => k.endsWith(".thumb")) ||
+    Object.keys(META.files)[0];
 
   const subtle = (window.crypto && window.crypto.subtle) || null;
   const b64ToBytes = (s) => {
@@ -83,7 +85,7 @@
   const importMaster = (rawB64) =>
     subtle.importKey("raw", b64ToBytes(rawB64), "AES-GCM", false, ["decrypt"]);
 
-  /* Decrypted object-URL for a logical key ("p01.thumb", "v2", …). Cached, and
+  /* Decrypted object-URL for a logical key ("p02.thumb", "v2", …). Cached, and
      the promise is cached too so simultaneous requests share one fetch. */
   function assetURL(key) {
     if (ASSET_CACHE.has(key)) return ASSET_CACHE.get(key);
@@ -186,7 +188,7 @@
 
   /* Category for the gallery filter — every photo gets exactly one. */
   const CATS = [
-    { key: "calls",     label: "On call",       ids: "p01 p06 p08 p09 p11 p12 p13 p15 p17 p20 p22 p23 p24 p27 p28 p29 p31 p32 p33 p40 p42".split(" ") },
+    { key: "calls",     label: "On call",       ids: "p06 p08 p09 p11 p12 p13 p15 p17 p20 p22 p23 p24 p27 p28 p29 p31 p32 p33 p40 p42".split(" ") },
     { key: "festivals", label: "Festivals",     ids: "p03 p07 p25 p35".split(" ") },
     { key: "outside",   label: "Out and about", ids: "p19 p26 p30 p38 p43 p44 p45".split(" ") },
     { key: "work",      label: "Your world",    ids: "p02 p14 p18 p34 p36 p41".split(" ") },
@@ -464,6 +466,7 @@
   let visible = ALL_IDS.slice();
   function initGallery() {
     const wrap = $("#masonry"), bar = $("#filters");
+    $("#galleryTitle").textContent = COUNTS.title;
 
     const chips = [{ key: "all", label: "Everything" }].concat(CATS);
     bar.innerHTML = chips.map((c) =>
@@ -949,7 +952,7 @@
     $("#finaleTitle").textContent = `Happy birthday, ${CONFIG.her}`;
     $("#finaleMsg").innerHTML = `
       <p class="big">${CONFIG.her} — 24th September. Aapka din ❤️</p>
-      <p>Mai aapke paas nahi hoon cake dene ke liye 🥹 so I made you this instead — forty-two photographs of you,
+      <p>Mai aapke paas nahi hoon cake dene ke liye 🥹 so I made you this instead — ${COUNTS.photosWord} photographs of you,
       four little films, ${US.words} of us, aur ek letter jo mai sach me keh raha hoon 😁❤️</p>
       <p>Is saal sab kuch click ho jaaye — CA, kaam, woh sab jo aap chup chaap kar rahi ho jab koi dekh nahi raha 🤞🥰
       Aur mai jaldi aapse milne aaun, because missing you is genuinely exhausting 😭🤧</p>
