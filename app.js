@@ -708,7 +708,7 @@
       </div>`).join("");
 
     $("#reasonsFoot").textContent =
-      `That's twenty-four. I could have kept going — I had to stop somewhere, and ${CONFIG.her} said the site should end eventually.`;
+      `Bas twenty-four 🥹 Mai aur likh sakta tha — par kahin rukna padta hai 😁 Aur ${CONFIG.her} ne bola tha site ko end bhi hona chahiye 😌❤️`;
 
     const flip = (card) => card.setAttribute("aria-pressed", card.getAttribute("aria-pressed") !== "true");
     $("#reasonsGrid").addEventListener("click", (e) => {
