@@ -26,6 +26,11 @@
   const ASSET_CACHE = new Map();
   let META = null, MASTER = null;
 
+  /* A remembered key is proven by decrypting one real asset (see initGate).
+     Chosen from the manifest at runtime so it can never name a deleted file. */
+  const verifyKey = () =>
+    META.files["p01.thumb"] ? "p01.thumb" : Object.keys(META.files)[0];
+
   const subtle = (window.crypto && window.crypto.subtle) || null;
   const b64ToBytes = (s) => {
     const bin = atob(s);
@@ -293,12 +298,24 @@
       if (saved) {
         try {
           MASTER = await importMaster(saved);
+          // A remembered key must be PROVEN, not assumed. importKey() happily
+          // accepts any 32 bytes, so a key from before a re-key would unlock the
+          // gate and then fail on every asset — an all-blank page. Decrypting one
+          // real asset is the only honest check. (It caches, so no wasted fetch.)
+          await assetURL(verifyKey());
           gate.hidden = true;
           document.body.classList.remove("locked");
           $("#site").hidden = false;
           startSite();
           return;
-        } catch (e) { /* stale or corrupt — fall through and ask */ }
+        } catch (e) {
+          // Stale or corrupt — forget it and ask her properly.
+          MASTER = null;
+          try {
+            sessionStorage.removeItem("anjali-key");
+            sessionStorage.removeItem("anjali-unlocked");
+          } catch (e2) {}
+        }
       }
 
       document.body.classList.add("locked");
