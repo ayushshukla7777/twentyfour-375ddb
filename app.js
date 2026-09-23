@@ -163,10 +163,10 @@
   /* Category for the gallery filter — every photo gets exactly one. */
   const CATS = [
     { key: "calls",     label: "On call",       ids: "p01 p06 p08 p09 p11 p12 p13 p15 p17 p20 p22 p23 p24 p27 p28 p29 p31 p32 p33 p40 p42".split(" ") },
-    { key: "festivals", label: "Festivals",     ids: "p03 p07 p21 p25".split(" ") },
+    { key: "festivals", label: "Festivals",     ids: "p03 p07 p25 p35".split(" ") },
     { key: "outside",   label: "Out and about", ids: "p19 p26 p30 p38 p43 p44 p45".split(" ") },
     { key: "work",      label: "Your world",    ids: "p02 p14 p18 p34 p36 p41".split(" ") },
-    { key: "us",        label: "The two of us", ids: "p05 p16 p37".split(" ") },
+    { key: "us",        label: "The two of us", ids: "p05 p37".split(" ") },
     { key: "portraits", label: "Just you",      ids: "p10 p35 p04".split(" ") },
   ];
   const catOf = (id) => (CATS.find((c) => c.ids.includes(id)) || {}).key || "other";
@@ -913,7 +913,7 @@
     $("#finaleTitle").textContent = `Happy birthday, ${CONFIG.her}`;
     $("#finaleMsg").innerHTML = `
       <p class="big">${CONFIG.her} — 24th September. Yours.</p>
-      <p>I'm not there to hand you a cake, so this is what I had instead: forty-four photographs of you,
+      <p>I'm not there to hand you a cake, so this is what I had instead: forty-two photographs of you,
       four little films, three years and nine months of us, and a letter I actually meant.</p>
       <p>I hope this year is the year it all clicks into place — the CA, the work, everything you've been
       quietly working for while nobody was watching. And I hope I get to come and see you soon, because

@@ -1,7 +1,7 @@
 # Twenty-four — 24th September
 
 A private birthday site. Not a template, not a card — a small hand-built corner of
-the internet with 44 photographs, four films, a live counter, an interactive cake and
+the internet with 42 photographs, four films, a live counter, an interactive cake and
 a letter.
 
 **The media in this repository is encrypted** (see [Privacy](#privacy)), which is why
@@ -14,7 +14,7 @@ A password gate, then, in order:
 
 1. **Hero** — her name, a live countdown that flips to a celebration at midnight IST
 2. **Us, by the numbers** — a counter ticking up in real time since the day they got together
-3. **Gallery** — all 44 photographs, filterable, with an individual caption written for each one
+3. **Gallery** — all 42 photographs, filterable, with an individual caption written for each one
 4. **The moving ones** — four short clips, playing only while on screen
 5. **Kolkata** — a generated suspension-bridge silhouette, a Bengali birthday wish, marigolds
 6. **Our story, in chapters** — six chapters, each anchored to real photos
@@ -32,7 +32,7 @@ A password gate, then, in order:
 | `styles.css` | All styling — Kolkata-at-night palette, responsive, no framework |
 | `data.js` | **All content**: config, captions, story, reasons, envelopes, quiz, the letter |
 | `app.js` | Behaviour: gate, counters, gallery, lightbox, cake, quiz, animations |
-| `assets/photo/` | 44 photos, WebP in `full/` (1100px) and `thumb/` (520px) |
+| `assets/photo/` | 42 photos, WebP in `full/` (1100px) and `thumb/` (520px) |
 | `assets/video/` | 4 clips, remuxed H.264 with `+faststart` |
 | `assets/manifest.json` | Machine-readable inventory of every asset |
 | `tools/` | The scripts used to prepare the media (kept for reproducibility) |
